@@ -1,0 +1,1 @@
+For the development of the skinning/User Interface. The User Interface should allow the scenarios outlined in the Staker and Borrowing documents. 
