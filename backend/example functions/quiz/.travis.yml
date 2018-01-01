@@ -1,0 +1,19 @@
+#Config file for automatic testing at travis-ci.org
+
+language: python
+sudo: false
+
+python:
+   - 3.4
+   - 3.5
+   - 3.6
+   - "pypy3"
+
+before_install:
+   - pip install tox-travis
+script:
+   - tox
+env:
+   - TOXENV=coverage
+after_success:
+   - coveralls
