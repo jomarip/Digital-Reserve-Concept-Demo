@@ -1,0 +1,26 @@
+From the FINRA Financial Test
+
+
+Suppose you have X in Savings Account earning Y % interest in a year. After Z years, how much would you have.
+
+1.More than X+Y*X
+2. Exactly X+Y*X
+3. Less than X+Y*X
+4. Don't Know 
+
+More than X+Y*X is always the answer
+
+
+ Imagine that the interest rate on a savings account is X percent a year and inflation is Y percent a year. After Z year(s), would the money in the account buy more than it does today, exactly the same or less than today?
+ 
+ A. More
+ B. Same
+ C. Less
+ D. Don't Know
+ 
+ If X = Y Same
+ If X > Y More
+ If X < Y Less
+ 
+ 
+ 
