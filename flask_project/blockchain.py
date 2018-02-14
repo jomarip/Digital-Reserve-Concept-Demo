@@ -1,3 +1,4 @@
+from time import time
 
 class Blockchain:
     def __init__(self):
