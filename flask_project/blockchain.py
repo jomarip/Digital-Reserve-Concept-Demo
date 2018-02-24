@@ -1,8 +1,10 @@
 from time import time
+import networkx as nx 
 
 class Blockchain:
     def __init__(self):
         self.current_transactions = []
+        self.DAG = nx.DiGraph()
         self.chain = []
         self.nodes = set()
 
@@ -110,6 +112,7 @@ class Blockchain:
         self.current_transactions = []
 
         self.chain.append(block)
+        self.DAG.add_node(block)
         return block
 
     def new_transaction(self, sender, recipient, amount):
