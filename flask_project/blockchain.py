@@ -99,21 +99,38 @@ class Blockchain:
         :param previous_hash: Hash of previous Block
         :return: New Block
         """
-
+        index = len(self.DAG) +1, 
         block = {
-            'index': len(self.chain) + 1,
+            'index': index,
             'timestamp': time(),
             'transactions': self.current_transactions,
             'proof': proof,
-            'previous_hash': previous_hash or self.hash(self.chain[-1]),
+            'previous_hash': previous_hash or self.hash(self.DAG.node[1]),
         }
 
         # Reset the current list of transactions
         self.current_transactions = []
 
-        self.chain.append(block)
+        #self.chain.append(block)
+        nodes = self.zero_in_degree_nodes()
+        self.add_block_toDag(index, block, nodes)
         self.DAG.add_node(block)
         return block
+    # returns a list of nodes with zero in degrees 
+    def zero_in_degree_nodes():
+      degree_view = self.DAG.in_degree()
+      degree_generator = degree_view.__iter__()
+      dict_of_degree = dict(degree_generator)
+      zero_inDegree_nodes = [k for k,v in dict_of_degree.items() if v == 0]
+
+      return zero_inDegree_nodes
+
+    def add_block_toDag(index, block, nodes): 
+      for i in nodes: 
+        self.DAG.add_edges(index,i )
+      self.node[index]['block'] = block
+
+
 
     def new_transaction(self, sender, recipient, amount):
         """
